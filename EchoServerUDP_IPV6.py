@@ -35,7 +35,7 @@ while True:
     message = data
 
     print("received message:", data)
-    print('received message:{message}'.format(message=data.decode()))
-    print('socket address: {ip} {port}'.format(ip=addr[0], port=addr[1]))
+    print('Received Message:{message}'.format(message=data.decode()))
+    print('Socket Address: {ip} {port}'.format(ip=addr[0], port=addr[1]))
 
     sock.sendto(addr[0].encode(), addr)
