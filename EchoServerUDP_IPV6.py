@@ -34,7 +34,6 @@ while True:
     data, addr = sock.recvfrom(1024)
     message = data
 
-    print("received message:", data)
     print('Received Message:{message}'.format(message=data.decode()))
     print('Socket Address: {ip} {port}'.format(ip=addr[0], port=addr[1]))
 
