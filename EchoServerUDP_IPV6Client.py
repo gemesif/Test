@@ -2,9 +2,10 @@
 
 import socket
 
-# UDP_IP = "::1"
-UDP_IP = "2a00:1450:400d:805::200e" # google.com
+UDP_IP = "::1"
+# UDP_IP = "2a00:1450:400d:805::200e" # google.com
 UDP_PORT = 5001
+UDP_PORT = 5000
 MESSAGE = "Hello, World!"
 
 print("UDP target IP:", UDP_IP)
