@@ -86,11 +86,24 @@ print('IP Address: {ipaddress} Port: {port}'.format(port=PORT, ipaddress=IP))
 
 #*********************************************************************************
 
-sock = socket.socket(socket.AF_INET6, socket.SOCK_DGRAM)
-sock.bind((IP, PORT))
+try:
+    sock = socket.socket(socket.AF_INET6, socket.SOCK_DGRAM)
+except socket.error as msg:
+    print("socket creation error: %s", msg)
+    sys.exit(1)
+
+try:
+    sock.bind((IP, PORT))
+except socket.error as msg:
+    print("socket bind error: %s", msg)
+    sys.exit(1)
 
 while True:
-    data, addr = sock.recvfrom(1024)
+    try:
+        data, addr = sock.recvfrom(1024)
+    except socket.error as msg:
+        print("socket bind error: %s", msg)
+        sys.exit(1)
     message = data
 
     print('Received Message:{message}'.format(message=data.decode()))
