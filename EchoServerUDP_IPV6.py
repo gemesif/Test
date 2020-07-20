@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import sys
+import os
 import getopt
 from datetime import datetime
 import socket
@@ -58,18 +59,23 @@ print('REMAINING :', remainder)
 
 msg_indent = (" ".rjust(len(sys.argv[0]) + 1))
 
-messagestring = '''\
+usagestring = '''\
 Usage: 
 {progname} [-h | --help] | [-v | --version]
 {indent}[-i ipv6_address | --ipaddr ipv6_address] | [-p port_number | --portnumber port_number] 
 {indent}default: ipv6_address "::1" port_number 5000
-              '''.format(progname=sys.argv[0], indent=msg_indent)
+              '''.format(progname=os.path.split(sys.argv[0])[1], indent=msg_indent)
+
+versionstring = '''\
+Version: {ver}
+                '''.format(ver=version)
 
 for opt, arg in options:
     if opt in ('-h', '--help'):
-        print(messagestring)
+        print(usagestring)
         pass
     elif opt in ('-v', '--version'):
+        print(versionstring)
         pass
     elif opt in ('-i', '--ipaddr'):
         IP = arg 
@@ -78,33 +84,32 @@ for opt, arg in options:
         PORT = int(arg)
         pass
        
-
 #*********************************************************************************
 
 cur_date = myDate()
 
 print('Running: {name} {date}'.format(name=sys.argv[0], date=cur_date))
-print('IP Address: {ipaddress} Port: {port}'.format(port=PORT, ipaddress=IP))
+print('Listening - IP Address: {ipaddress} Port: {port}'.format(port=PORT, ipaddress=IP))
 
 #*********************************************************************************
 
 try:
     sock = socket.socket(socket.AF_INET6, socket.SOCK_DGRAM)
 except socket.error as msg:
-    print("socket creation error: %s", msg)
+    print("socket creation error:", msg)
     sys.exit(1)
 
 try:
     sock.bind((IP, PORT))
 except socket.error as msg:
-    print("socket bind error: %s", msg)
+    print("socket bind error:", msg)
     sys.exit(1)
 
 while True:
     try:
         data, addr = sock.recvfrom(1024)
     except socket.error as msg:
-        print("socket bind error: %s", msg)
+        print("socket bind error:", msg)
         sys.exit(1)
     message = data
 
