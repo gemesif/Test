@@ -16,7 +16,7 @@ import socket
 
 #*********************************************************************************
 
-version = '1.0'
+version = '1.1'
 
 IP = "::1"
 # IP = "2a00:1450:400d:805::200e" # google.com
@@ -59,13 +59,13 @@ except getopt.GetoptError as err:
 print('OPTIONS   :', options)
 print('REMAINING :', remainder)
 
-msg_indent = (" ".rjust(len(sys.argv[0]) + 1))
+msg_indent = (" ".rjust(len(os.path.split(sys.argv[0])[1]) + 1))
 
 usagestring = '''\
 Usage:
 {progname} [-h | --help] | [-v | --version] | [-l | --loop]
 {indent}[-i ipv6_address | --ipaddr ipv6_address] | [-p port_number | --portnumber port_number]
-{indent}default: ipv6_address "::1" port_number 5000
+{indent}defaults: ipv6_address "::1" port_number 5000
               '''.format(progname=os.path.split(sys.argv[0])[1], indent=msg_indent)
 
 versionstring = '''\
@@ -115,7 +115,7 @@ except socket.error as msg:
     print("socket recvfrom error:", msg)
     sys.exit(1)
 
-print("{}: {}".format(ip, data.decode()))
+print("{}".format(data.decode()))
 
 count = 1
 while LOOP:    # infinite loop fot test
@@ -133,6 +133,6 @@ while LOOP:    # infinite loop fot test
         print("socket recvfrom error:", msg)
         sys.exit(1)
 
-    print("{} {}: {}".format(count, ip, data.decode()))
+    print("{}".format(data).decode())
     count += 1
 
