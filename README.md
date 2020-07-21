@@ -5,11 +5,13 @@ IPv6 address discovery of host in IP network communication.
 Client-server architecture. Client(IPv6EchoClient) send request to server(Pv6Echo), the server sends her reply to client, what was the ip adders which client used.
 My solution the IPv6 Echo.py, IPv6EchoClient.py pair, written in Python programming language. Using UDP protocoll.
 ### Parametrization.
-```Usage: 
+```
+Usage: 
 EchoServerUDP_IPV6.py [-h | --help] | [-v | --version] | | [-d | --document]
                       [-i ipv6_address | --ipaddr ipv6_address] | [-p port_number | --portnumber port_number] 
                       defaults: ipv6_address "::1" port_number 5000
-              ```
+              
+```
 ### Usage instruction tricks.
 If the server and client in the same host, we can detect the client actual Global Unicast IPv6  Address(ipv6 or temporary ipv6...).
 (The example is in Linux-Ubuntu 20.04 LTS environment)
