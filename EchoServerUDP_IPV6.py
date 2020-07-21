@@ -98,7 +98,7 @@ ip6tables -A OUTPUT -t nat -p udp --dport 5001 -j DNAT --to [::1]:5000
 Starting the server
 EchoServerUDP_IPV6.py -p 5000
 Starting the client
-EchoServerUDP_IPV6Client.py -i 2a00:1450:400d:805::200e -p 5001 # 
+EchoServerUDP_IPV6Client.py -i 2a00:1450:400d:805::200e -p 5001 # google.com IPv6 address
 
 
             '''.format(ver=version, help=usagestring)
