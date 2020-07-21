@@ -1,4 +1,4 @@
-Documentation: 1.1
+*Documentation: 1.1*
 ### Goal.
 IPv6 address discovery of host in IP network communication.
 ### Realization.
@@ -14,10 +14,9 @@ EchoServerUDP_IPV6.py [-h | --help] | [-v | --version] | | [-d | --document]
 ```
 ### Usage instruction tricks.
 If the server and client in the same host, we can detect the client actual Global Unicast IPv6  Address(ipv6 or temporary ipv6...).
-
 (The example is in Linux-Ubuntu 20.04 LTS environment)
 
-The method:
+#### The method:
 
 iptables rule
 
@@ -25,11 +24,11 @@ iptables rule
 
 (forward from port 5001 to [::1]:5000 ipaddress, port in OUTPUT chain, nat table)
 
-```\# ip6tables -t nat -v -L -n --line-number```
+```# ip6tables -t nat -v -L -n --line-number```
 
 (list nat table rules)
 
-```\# ip6tables -t nat -D OUTPUT 1```
+```# ip6tables -t nat -D OUTPUT 1```
 
 (delete rule #1 from OUTPUT chain nat table) 
 
