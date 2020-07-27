@@ -2,7 +2,7 @@
 ### Goal.
 IPv6 address discovery of host in IP network communication.
 ### Realization.
-Client-server architecture. Client(IPv6EchoClient) send request to server(Pv6Echo), the server sends her reply to client, what was the ip adders which client used.
+Client-server architecture. Client(IPv6EchoClient) send request to server(IPv6Echo), the server sends her reply to client, what was the ip adders which client used.
 My solution the IPv6 Echo.py, IPv6EchoClient.py pair, written in Python programming language. Using UDP protocoll.
 ### Parametrization.
 ```

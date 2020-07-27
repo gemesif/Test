@@ -379,7 +379,48 @@ command = "/usr/bin/curl"
 command_parameter = "https://freedns.afraid.org/dynamic/update.php?a3dwRHN2dXNZenJYQmVZRWVCNElwbHRNOjE5MTgwOTUy&address=" + myIPAddress
 # print(command_parameter)
 
+"""
 p = subprocess.Popen([command, command_parameter], stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
 output, errors = p.communicate()
 print(output)
 print(str(myIPAddress))
+"""
+
+try:
+    ipaddress.IPv6Address('2001:db8::1000')
+except ValueError as ve:
+    print("Error: ", ve)
+
+net6 = ipaddress.IPv6Address('2001:db8::1000')
+print(net6.exploded)
+
+"""
+proc = subprocess.Popen(...)
+try:
+    outs, errs = proc.communicate(timeout=15)
+except TimeoutExpired:
+    proc.kill()
+    outs, errs = proc.communicate()
+"""
+
+# /usr/bin/dig +short gemesif.mooo.com AAAA
+command = "/usr/bin/dig" 
+command_parameter_array = ["+short", "gemesif.mooo.com", "AAAA"]
+command_parameter = "+short"
+command_parameter1 = "gemesif.mooo.com" 
+command_parameter2 = "AAAA" 
+
+print(command, command_parameter)
+
+# p = subprocess.Popen([command, command_parameter, command_parameter1, command_parameter2], stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
+p = subprocess.Popen([command, *command_parameter_array], stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
+
+try:
+    output, errors = p.communicate(timeout=15)
+except TimeoutExpired: 
+    print("Time out error")
+
+print("output ",output)
+print("errors ", errors)
+
+
