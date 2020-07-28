@@ -134,6 +134,6 @@ while LOOP:    # infinite loop fot test
         print("socket recvfrom error:", msg)
         sys.exit(1)
 
-    print("{}".format(data).decode())
+    print("{} {}".format(count, data.decode()))
     count += 1
 

@@ -3,7 +3,7 @@
 IPv6 address discovery of host in IP network communication.
 ### Realization.
 Client-server architecture. Client(IPv6EchoClient) send request to server(IPv6Echo), the server sends her reply to client, what was the ip adders which client used.
-My solution the IPv6 Echo.py, IPv6EchoClient.py pair, written in Python programming language. Using UDP protocol
+My solution the IPv6 Echo.py, IPv6EchoClient.py pair, written in Python programming language. Using UDP protocoll.
 ### Parametrization.
 ```
 Usage: 
@@ -13,7 +13,7 @@ EchoServerUDP_IPV6.py [-h | --help] | [-v | --version] | | [-d | --document]
               
 ```
 ### Usage instruction tricks.
-If the server and client in the same host, we can detect the client actual Global Unicast IPv6  Address(ipv6 or temporary IPv6...). (The example is in Linux-Ubuntu 20.04 LTS environment)
+If the server and client in the same host, we can detect the client actual Global Unicast IPv6  Address(ipv6 or temporary ipv6...).\s\s(The example is in Linux-Ubuntu 20.04 LTS environment)
 
 #### The method:
 

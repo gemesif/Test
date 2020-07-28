@@ -80,9 +80,11 @@ Running in infinite loop
 for opt, arg in options:
     if opt in ('-h', '--help'):
         print(usagestring)
+        exit(0)
         pass
     elif opt in ('-v', '--version'):
         print(versionstring) 
+        exit(0)
         pass
     elif opt in ('-l', '--loop'):
         print(loopstring)
@@ -134,6 +136,6 @@ while LOOP:    # infinite loop fot test
         print("socket recvfrom error:", msg)
         sys.exit(1)
 
-    print("{}".format(data).decode())
+    print("{} {}".format(count, data.decode()))
     count += 1
 
